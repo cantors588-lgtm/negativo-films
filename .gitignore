@@ -1,0 +1,10 @@
+beats-venta/*.wav
+beats-venta/previews-45s/*.wav
+beats-venta/previews-45s/ogg/
+trim_previews.py
+analyze_bpm.py
+server.py
+Procfile
+railway.json
+vercel.json
+__pycache__/

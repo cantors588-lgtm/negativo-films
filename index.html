@@ -1,0 +1,784 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0b0b0c">
+  <meta name="referrer" content="no-referrer">
+  <meta name="permissions-policy" content="camera=(), microphone=(), geolocation=(), payment=(), usb=()">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'none'; object-src 'none'; form-action 'none'; script-src 'self' https://unpkg.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; media-src 'self'; connect-src 'self';">
+  <title>NEGATIVO FILMS | Instrumentales nuevas</title>
+  <meta name="description" content="NEGATIVO FILMS - Producción, mezcla y masterización de instrumentales.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@0.468.0"></script>
+  <style>
+    :root {
+      --bg: #050507;
+      --bg-soft: #0d0d12;
+      --panel: #101218;
+      --panel-2: #171922;
+      --line: rgba(190, 109, 255, 0.4);
+      --text: #f4f4f8;
+      --muted: #b7afd8;
+      --soft: #dfe6ee;
+      --gold: #b658ff;
+      --gold-soft: #d680ff;
+      --green: #d9ff3a;
+      --green-deep: #bafc2e;
+      --red: #ff5ab5;
+      --shadow: rgba(0,0,0,0.5);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background:
+        radial-gradient(circle at top right, rgba(182,88,255,0.2), transparent 18%),
+        radial-gradient(circle at left center, rgba(217,255,58,0.08), transparent 22%),
+        linear-gradient(180deg, #040406 0%, #090a11 100%);
+      color: var(--text);
+      font-family: "Inter", sans-serif;
+      min-height: 100vh;
+    }
+    a { color: inherit; text-decoration: none; }
+    img { display: block; max-width: 100%; }
+    button, input, select, textarea { font: inherit; }
+    button { cursor: pointer; }
+
+    .container { max-width: 1280px; margin: 0 auto; padding: 0 22px; }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 40;
+      background: rgba(9,9,12,0.8);
+      backdrop-filter: blur(18px);
+      border-bottom: 1px solid var(--line);
+    }
+    .nav {
+      height: 82px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+    }
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+    .brand-mark {
+      width: 15px;
+      height: 15px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--green), var(--gold-soft));
+      box-shadow: 0 0 24px rgba(217,255,58,0.7);
+    }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+    .nav-links a:hover { color: var(--text); }
+    .nav-cta {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px 16px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.01);
+      color: var(--text);
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .hero {
+      padding: 46px 0 18px;
+    }
+    .hero-inner {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 32px;
+      align-items: center;
+    }
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--green);
+      font-size: 0.7rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+    }
+    .eyebrow::before {
+      content: "";
+      width: 26px;
+      height: 1px;
+      background: linear-gradient(90deg, var(--green), transparent);
+    }
+    h1 {
+      margin: 0;
+      font-size: clamp(3.1rem, 5vw, 6rem);
+      line-height: 0.9;
+      letter-spacing: -0.07em;
+      font-weight: 800;
+    }
+    .hero-copy {
+      margin: 18px 0 26px;
+      max-width: 560px;
+      color: var(--muted);
+      line-height: 1.7;
+      font-size: 1.04rem;
+    }
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 15px 20px;
+      border: 1px solid var(--line);
+      transition: transform .2s ease, border-color .2s ease, box-shadow .2s ease;
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+    .btn:hover { transform: translateY(-2px); }
+    .btn.primary {
+      background: linear-gradient(135deg, var(--green), var(--green-deep));
+      color: #0a0d12;
+      border-color: transparent;
+      box-shadow: 0 18px 30px rgba(217,255,58,0.18);
+      font-weight: 800;
+    }
+    .btn.secondary {
+      background: rgba(182,88,255,0.08);
+      color: var(--text);
+      border-color: rgba(182,88,255,0.45);
+    }
+
+    .hero-panel {
+      position: relative;
+      background: linear-gradient(180deg, rgba(22,24,28,0.9), rgba(16,18,22,0.9));
+      border: 1px solid var(--line);
+      min-height: 360px;
+      overflow: hidden;
+      box-shadow: 0 18px 48px rgba(0,0,0,0.32);
+    }
+    .hero-panel::before {
+      content: "";
+      position: absolute;
+      inset: 18px;
+      background: linear-gradient(135deg, rgba(217,179,104,0.14), rgba(239,75,93,0.06));
+      border: 1px solid rgba(255,255,255,0.04);
+      transform: rotate(-4deg);
+      z-index: 0;
+    }
+    .hero-panel-inner {
+      position: relative;
+      z-index: 1;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 30px 28px;
+    }
+    .mini-tag {
+      color: var(--green);
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      font-size: 0.7rem;
+    }
+    .panel-title {
+      margin: 22px 0 14px;
+      font-size: clamp(2rem, 3vw, 3.2rem);
+      line-height: 0.9;
+      letter-spacing: -0.06em;
+      font-weight: 800;
+    }
+    .panel-list {
+      display: grid;
+      gap: 12px;
+      color: var(--muted);
+      margin-top: 10px;
+    }
+    .panel-item {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      border-top: 1px solid var(--line);
+      padding-top: 12px;
+      font-size: 0.8rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+    .panel-item strong {
+      color: var(--text);
+      font-weight: 700;
+    }
+
+    .filterbar {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      padding: 28px 0 12px;
+      border-top: 1px solid var(--line);
+      margin-top: 18px;
+    }
+    .filter-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .pill {
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.01);
+      color: var(--muted);
+      padding: 11px 15px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      font-size: 0.68rem;
+    }
+    .pill.active {
+      background: linear-gradient(135deg, rgba(182,88,255,0.18), rgba(217,255,58,0.08));
+      color: var(--green);
+      border-color: rgba(217,255,58,0.5);
+    }
+    .count {
+      color: var(--muted);
+      font-size: 0.72rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    .beat-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 18px;
+      padding: 22px 0 56px;
+    }
+    .beat-card {
+      background: linear-gradient(180deg, rgba(18,22,28,1), rgba(12,15,19,1));
+      border: 1px solid var(--line);
+      overflow: hidden;
+      transition: transform .2s ease, border-color .2s ease, box-shadow .2s ease;
+      position: relative;
+      display: block;
+    }
+    .beat-card.hidden {
+      display: none;
+    }
+    .beat-card:hover {
+      transform: translateY(-3px);
+      border-color: rgba(217,179,104,0.4);
+      box-shadow: 0 18px 40px rgba(0,0,0,0.25);
+    }
+    .beat-cover {
+      position: relative;
+      aspect-ratio: 1 / 0.95;
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      padding: 18px 16px;
+      overflow: hidden;
+      background: linear-gradient(135deg, var(--cover-a, #2c2d31), var(--cover-b, #1b1d21));
+    }
+    .beat-cover::before {
+      content: "";
+      position: absolute;
+      inset: auto -30px -26px auto;
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      border: 1px solid rgba(255,255,255,0.2);
+      box-shadow: 0 0 0 24px rgba(255,255,255,0.04), 0 0 0 50px rgba(255,255,255,0.02);
+    }
+    .beat-bpm {
+      position: relative;
+      z-index: 1;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 9px;
+      background: rgba(9,9,12,0.38);
+      border: 1px solid rgba(255,255,255,0.08);
+      font-size: 0.62rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--soft);
+    }
+    .play-btn {
+      position: relative;
+      z-index: 1;
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: var(--gold-soft);
+      color: #101010;
+      border: 0;
+      display: grid;
+      place-items: center;
+      box-shadow: 0 12px 24px rgba(0,0,0,0.25);
+    }
+    .beat-info {
+      padding: 18px 16px 16px;
+    }
+    .title-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 8px;
+      align-items: flex-start;
+      margin-bottom: 8px;
+    }
+    .beat-name {
+      margin: 0;
+      font-size: 1.05rem;
+      letter-spacing: -0.04em;
+      font-weight: 700;
+    }
+    .price {
+      color: var(--gold-soft);
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      white-space: nowrap;
+      margin-top: 2px;
+    }
+    .beat-meta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      padding-top: 12px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 0.7rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+    .mini-actions-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .tiny-btn {
+      width: 28px;
+      height: 28px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.02);
+      color: var(--text);
+      display: grid;
+      place-items: center;
+    }
+
+    .bottom-player {
+      position: sticky;
+      bottom: 0;
+      z-index: 50;
+      background: rgba(9,9,12,0.82);
+      backdrop-filter: blur(18px);
+      border-top: 1px solid var(--line);
+    }
+    .player-grid {
+      min-height: 88px;
+      display: grid;
+      grid-template-columns: 1.1fr 1.3fr 0.7fr;
+      align-items: center;
+      gap: 18px;
+      padding: 10px 0;
+    }
+    .player-track {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-width: 0;
+    }
+    .track-art {
+      width: 46px;
+      height: 46px;
+      background: linear-gradient(135deg, var(--gold-soft), var(--gold));
+      border: 1px solid rgba(255,255,255,0.08);
+      flex-shrink: 0;
+    }
+    .track-text { min-width: 0; }
+    .track-text strong {
+      display: block;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      font-size: 0.95rem;
+      letter-spacing: -0.03em;
+    }
+    .track-text span {
+      color: var(--muted);
+      font-size: 0.7rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+    .player-controls {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 18px;
+    }
+    .icon-btn {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      background: transparent;
+      border: 1px solid var(--line);
+      color: var(--text);
+      display: grid;
+      place-items: center;
+    }
+    .icon-btn.play-main {
+      width: 42px;
+      height: 42px;
+      border: 0;
+      background: var(--text);
+      color: #101010;
+    }
+    .timeline {
+      margin-top: 8px;
+      height: 2px;
+      background: rgba(255,255,255,0.08);
+      overflow: hidden;
+      cursor: pointer;
+    }
+    .timeline span {
+      display: block;
+      width: 0%;
+      height: 100%;
+      background: linear-gradient(90deg, var(--gold-soft), var(--gold));
+    }
+    .player-volume {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 12px;
+      color: var(--muted);
+    }
+    input[type="range"] {
+      accent-color: var(--gold);
+      width: 110px;
+    }
+
+    .cta-banner {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 20px;
+      padding: 32px 28px;
+      margin: 26px 0 70px;
+      background: linear-gradient(135deg, rgba(182,88,255,0.12), rgba(217,255,58,0.02));
+      border: 1px solid var(--line);
+      box-shadow: 0 20px 56px rgba(0,0,0,0.22);
+    }
+    .cta-banner h3 {
+      margin: 10px 0 12px;
+      font-size: clamp(2rem, 3vw, 3rem);
+      letter-spacing: -0.06em;
+    }
+    .cta-banner p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.7;
+      max-width: 560px;
+    }
+    .cta-actions {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 12px;
+      align-items: flex-start;
+    }
+    .phone-number {
+      font-size: 1.3rem;
+      letter-spacing: -0.04em;
+      font-weight: 700;
+      color: var(--green);
+    }
+
+    footer {
+      border-top: 1px solid var(--line);
+      padding: 28px 0 54px;
+      background: rgba(255,255,255,0.01);
+    }
+    .footer-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      font-size: 0.68rem;
+    }
+
+    @media (max-width: 1100px) {
+      .beat-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    }
+    @media (max-width: 840px) {
+      .hero-inner,
+      .cta-banner,
+      .player-grid { grid-template-columns: 1fr; }
+      .beat-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .nav-links { display: none; }
+      .player-volume { justify-content: flex-start; }
+      .cta-banner { padding: 22px 18px; }
+    }
+    @media (max-width: 560px) {
+      .beat-grid { grid-template-columns: 1fr; }
+      .nav { height: 72px; }
+      .hero { padding-top: 38px; }
+      .filter-group { width: 100%; }
+      .pill { flex: 1 1 auto; text-align: center; }
+      .player-controls { justify-content: flex-start; }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="container nav">
+      <a href="#inicio" class="brand"><span class="brand-mark"></span>NEGATIVO FILMS</a>
+      <div class="nav-links">
+        <a href="#inicio">Inicio</a>
+        <a href="#beats">Instrumentales</a>
+        <a href="#servicios">Servicios</a>
+        <a href="#contacto">Contacto</a>
+      </div>
+      <a class="nav-cta" href="tel:+573227200078">3227200078</a>
+    </div>
+  </header>
+
+  <main id="inicio">
+    <section class="container hero">
+      <div class="hero-inner">
+        <div>
+          <div class="eyebrow">Nuevas instrumentales</div>
+          <h1>Instrumentales <br>hechas para <span style="color: var(--gold-soft);">impactar.</span></h1>
+          <p class="hero-copy">NEGATIVO FILMS entrega instrumentales de alta calidad con identidad, energía y un acabado profesional. Producción, mezcla y masterización para artistas que quieren sonar más fuertes y más claros.</p>
+          <div class="hero-actions">
+            <a class="btn primary" href="tel:+573227200078">Reservar sesión <i data-lucide="phone" width="15"></i></a>
+            <a class="btn secondary" href="#beats">Explorar instrumentales</a>
+          </div>
+        </div>
+
+        <div class="hero-panel">
+          <div class="hero-panel-inner">
+            <span class="mini-tag">NEGATIVO FILMS</span>
+            <div class="panel-title">Instrumentales de calidad <br>a tu alcance.</div>
+            <div class="panel-list">
+              <div class="panel-item"><span>Producción</span> <strong>Profesional</strong></div>
+              <div class="panel-item"><span>Mezcla</span> <strong>Mezcla detallada</strong></div>
+              <div class="panel-item"><span>Masterización</span> <strong>Acabado final</strong></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="container" id="beats">
+      <div class="filterbar">
+        <div class="filter-group" aria-label="Filtros">
+          <button class="pill active" type="button" data-filter="all">Todos</button>
+          <button class="pill" type="button" data-filter="Trap">Trap</button>
+          <button class="pill" type="button" data-filter="R&B">R&B</button>
+          <button class="pill" type="button" data-filter="Hip Hop">Hip Hop</button>
+          <button class="pill" type="button" data-filter="Drill">Drill</button>
+        </div>
+        <div class="count" id="countBeats">6 instrumentales disponibles</div>
+      </div>
+
+      <div class="beat-grid">
+        <article class="beat-card" data-title="boom bap" data-artist="NEGATIVO FILMS" data-bpm="91 BPM" data-price="€19" data-genre="Trap" data-audio="beats-venta/previews-45s/mp3/boom%20bap_45s.mp3">
+          <div class="beat-cover" style="--cover-a:#2a303e; --cover-b:#151b24;">
+            <span class="beat-bpm">91 BPM</span>
+            <button class="play-btn" type="button" aria-label="Reproducir boom bap"><i data-lucide="play" width="15" fill="currentColor"></i></button>
+          </div>
+          <div class="beat-info">
+            <div class="title-row">
+              <h3 class="beat-name">boom bap</h3>
+              <span class="price">€19</span>
+            </div>
+            <div class="beat-meta">
+              <span>Trap</span>
+              <div class="mini-actions-row">
+                <button class="tiny-btn" type="button" aria-label="Me gusta"><i data-lucide="heart" width="12"></i></button>
+                <button class="tiny-btn" type="button" aria-label="Comprar"><i data-lucide="shopping-bag" width="12"></i></button>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="beat-card" data-title="BUCLE" data-artist="NEGATIVO FILMS" data-bpm="89 BPM" data-price="€25" data-genre="R&B" data-audio="beats-venta/previews-45s/mp3/BUCLE_45s.mp3">
+          <div class="beat-cover" style="--cover-a:#473535; --cover-b:#201516;">
+            <span class="beat-bpm">89 BPM</span>
+            <button class="play-btn" type="button" aria-label="Reproducir BUCLE"><i data-lucide="play" width="15" fill="currentColor"></i></button>
+          </div>
+          <div class="beat-info">
+            <div class="title-row">
+              <h3 class="beat-name">BUCLE</h3>
+              <span class="price">€25</span>
+            </div>
+            <div class="beat-meta">
+              <span>R&B</span>
+              <div class="mini-actions-row">
+                <button class="tiny-btn" type="button" aria-label="Me gusta"><i data-lucide="heart" width="12"></i></button>
+                <button class="tiny-btn" type="button" aria-label="Comprar"><i data-lucide="shopping-bag" width="12"></i></button>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="beat-card" data-title="EL TIEMPO" data-artist="NEGATIVO FILMS" data-bpm="91 BPM" data-price="€21" data-genre="Hip Hop" data-audio="beats-venta/previews-45s/mp3/EL%20TIEMPO_45s.mp3">
+          <div class="beat-cover" style="--cover-a:#374737; --cover-b:#171d18;">
+            <span class="beat-bpm">91 BPM</span>
+            <button class="play-btn" type="button" aria-label="Reproducir EL TIEMPO"><i data-lucide="play" width="15" fill="currentColor"></i></button>
+          </div>
+          <div class="beat-info">
+            <div class="title-row">
+              <h3 class="beat-name">EL TIEMPO</h3>
+              <span class="price">€21</span>
+            </div>
+            <div class="beat-meta">
+              <span>Hip Hop</span>
+              <div class="mini-actions-row">
+                <button class="tiny-btn" type="button" aria-label="Me gusta"><i data-lucide="heart" width="12"></i></button>
+                <button class="tiny-btn" type="button" aria-label="Comprar"><i data-lucide="shopping-bag" width="12"></i></button>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="beat-card" data-title="encontrarme" data-artist="NEGATIVO FILMS" data-bpm="89 BPM" data-price="€29" data-genre="Drill" data-audio="beats-venta/previews-45s/mp3/encontrarme_45s.mp3">
+          <div class="beat-cover" style="--cover-a:#382a2d; --cover-b:#1a1215;">
+            <span class="beat-bpm">89 BPM</span>
+            <button class="play-btn" type="button" aria-label="Reproducir encontrarme"><i data-lucide="play" width="15" fill="currentColor"></i></button>
+          </div>
+          <div class="beat-info">
+            <div class="title-row">
+              <h3 class="beat-name">encontrarme</h3>
+              <span class="price">€29</span>
+            </div>
+            <div class="beat-meta">
+              <span>Drill</span>
+              <div class="mini-actions-row">
+                <button class="tiny-btn" type="button" aria-label="Me gusta"><i data-lucide="heart" width="12"></i></button>
+                <button class="tiny-btn" type="button" aria-label="Comprar"><i data-lucide="shopping-bag" width="12"></i></button>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="beat-card" data-title="Project 16 - TIKTOK BOOM BAP 2" data-artist="NEGATIVO FILMS" data-bpm="85 BPM" data-price="€22" data-genre="Trap" data-audio="beats-venta/previews-45s/mp3/Project_16%20-%20TIKTOK%20BOOM%20BAP%202_45s.mp3">
+          <div class="beat-cover" style="--cover-a:#3b3852; --cover-b:#191d2b;">
+            <span class="beat-bpm">85 BPM</span>
+            <button class="play-btn" type="button" aria-label="Reproducir Project 16 - TIKTOK BOOM BAP 2"><i data-lucide="play" width="15" fill="currentColor"></i></button>
+          </div>
+          <div class="beat-info">
+            <div class="title-row">
+              <h3 class="beat-name">Project 16 - TIKTOK BOOM BAP 2</h3>
+              <span class="price">€22</span>
+            </div>
+            <div class="beat-meta">
+              <span>Trap</span>
+              <div class="mini-actions-row">
+                <button class="tiny-btn" type="button" aria-label="Me gusta"><i data-lucide="heart" width="12"></i></button>
+                <button class="tiny-btn" type="button" aria-label="Comprar"><i data-lucide="shopping-bag" width="12"></i></button>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="beat-card" data-title="tiktok2" data-artist="NEGATIVO FILMS" data-bpm="91 BPM" data-price="€27" data-genre="R&B" data-audio="beats-venta/previews-45s/mp3/tiktok2_45s.mp3">
+          <div class="beat-cover" style="--cover-a:#2f344d; --cover-b:#171924;">
+            <span class="beat-bpm">91 BPM</span>
+            <button class="play-btn" type="button" aria-label="Reproducir tiktok2"><i data-lucide="play" width="15" fill="currentColor"></i></button>
+          </div>
+          <div class="beat-info">
+            <div class="title-row">
+              <h3 class="beat-name">tiktok2</h3>
+              <span class="price">€27</span>
+            </div>
+            <div class="beat-meta">
+              <span>R&B</span>
+              <div class="mini-actions-row">
+                <button class="tiny-btn" type="button" aria-label="Me gusta"><i data-lucide="heart" width="12"></i></button>
+                <button class="tiny-btn" type="button" aria-label="Comprar"><i data-lucide="shopping-bag" width="12"></i></button>
+              </div>
+            </div>
+          </div>
+        </article>
+
+      </div>
+
+      <div class="cta-banner" id="contacto">
+        <div>
+          <div class="eyebrow">Contacto</div>
+          <h3>Listo para tu próximo proyecto sonoro.</h3>
+          <p>NEGATIVO FILMS diseña beats de alta calidad para artistas que buscan un sonido más limpio, más serio y con más presencia. Producción, mezcla y masterización profesional.</p>
+        </div>
+        <div class="cta-actions">
+          <div class="phone-number">+57 322 720 0078</div>
+          <a class="btn primary" href="tel:+573227200078">Llamar ahora</a>
+          <a class="btn secondary" href="https://wa.me/573227200078?text=Hola%20NEGATIVO%20FILMS%2C%20quiero%20consultar%20sobre%20una%20instrumental." target="_blank" rel="noreferrer">WhatsApp</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div class="bottom-player">
+    <div class="container player-grid">
+      <div class="player-track">
+        <div class="track-art"></div>
+        <div class="track-text">
+          <strong id="playerTitle">boom bap</strong>
+          <span id="playerArtist">NEGATIVO FILMS • 92 BPM</span>
+        </div>
+      </div>
+
+      <div>
+        <div class="player-controls">
+          <button class="icon-btn" type="button" aria-label="Beat anterior"><i data-lucide="skip-back" width="15"></i></button>
+          <button class="icon-btn play-main" type="button" aria-label="Reproducir o pausar"><i data-lucide="play" width="15" fill="currentColor"></i></button>
+          <button class="icon-btn" type="button" aria-label="Beat siguiente"><i data-lucide="skip-forward" width="15"></i></button>
+        </div>
+        <div class="timeline"><span></span></div>
+      </div>
+
+      <div class="player-volume">
+        <i data-lucide="volume-2" width="16"></i>
+        <input type="range" min="0" max="100" value="72" aria-label="Control de volumen">
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="container footer-row">
+      <div>NEGATIVO FILMS</div>
+      <div>Producción · Mezcla · Masterización</div>
+    </div>
+  </footer>
+
+  <script src="app.js" defer></script>
+</body>
+</html>

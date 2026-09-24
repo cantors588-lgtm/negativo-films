@@ -1,0 +1,6 @@
+beats-venta/*.wav
+beats-venta/previews-45s/*.wav
+beats-venta/previews-45s/ogg/
+trim_previews.py
+__pycache__/
+.git/
