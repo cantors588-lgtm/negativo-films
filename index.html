@@ -563,6 +563,173 @@
       .pill { flex: 1 1 auto; text-align: center; }
       .player-controls { justify-content: flex-start; }
     }
+
+    /* Portada editorial: conserva los controles y la paleta del sitio. */
+    body {
+      background:
+        linear-gradient(115deg, rgba(5,5,7,0.96), rgba(9,8,15,0.72)),
+        radial-gradient(circle at 82% 18%, rgba(182,88,255,0.24), transparent 26%),
+        radial-gradient(circle at 18% 80%, rgba(217,255,58,0.1), transparent 24%),
+        #050507;
+    }
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      opacity: 0.22;
+      background-image: linear-gradient(rgba(255,255,255,0.035) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+      background-size: 54px 54px;
+      mask-image: linear-gradient(to bottom, black, transparent 76%);
+      z-index: -1;
+    }
+    .topbar {
+      position: absolute;
+      width: 100%;
+      background: linear-gradient(180deg, rgba(5,5,7,0.92), transparent);
+      border-bottom: 0;
+    }
+    .nav {
+      height: 96px;
+      max-width: 1400px;
+    }
+    .brand {
+      font-size: 0.8rem;
+      letter-spacing: 0.16em;
+    }
+    .brand-mark {
+      width: 21px;
+      height: 21px;
+      border-radius: 4px;
+      transform: rotate(45deg);
+    }
+    .nav-links {
+      gap: 32px;
+      color: rgba(244,244,248,0.66);
+    }
+    .nav-links a:first-child { color: var(--green); }
+    .nav-cta {
+      border-color: rgba(217,255,58,0.45);
+      color: var(--green);
+    }
+    .hero {
+      position: relative;
+      min-height: 760px;
+      display: flex;
+      align-items: center;
+      padding: 154px 22px 34px;
+      overflow: hidden;
+      max-width: 1400px;
+    }
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(90deg, rgba(5,5,7,0.98) 0%, rgba(5,5,7,0.72) 52%, rgba(5,5,7,0.2) 100%);
+      border-left: 1px solid rgba(217,255,58,0.5);
+      border-right: 1px solid rgba(182,88,255,0.22);
+      pointer-events: none;
+    }
+    .hero::after {
+      content: "NEGATIVO FILMS / STUDIO SELECT";
+      position: absolute;
+      right: 6%;
+      bottom: 25%;
+      color: rgba(217,255,58,0.12);
+      font-size: clamp(2rem, 5vw, 5rem);
+      font-weight: 900;
+      letter-spacing: 0.16em;
+      transform: rotate(-90deg);
+      transform-origin: right bottom;
+      pointer-events: none;
+    }
+    .hero-inner {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      grid-template-columns: 1.12fr 0.88fr;
+      gap: 58px;
+    }
+    .eyebrow { margin-bottom: 24px; }
+    h1 {
+      max-width: 760px;
+      font-size: clamp(4rem, 8.5vw, 8.4rem);
+      line-height: 0.88;
+      letter-spacing: -0.09em;
+      text-transform: uppercase;
+      text-shadow: 0 12px 42px rgba(182,88,255,0.18);
+    }
+    .hero-copy {
+      max-width: 620px;
+      margin: 26px 0 32px;
+      font-size: 1.02rem;
+      color: rgba(223,230,238,0.72);
+    }
+    .btn { min-height: 54px; padding: 15px 24px; }
+    .hero-panel {
+      min-height: 430px;
+      background: linear-gradient(145deg, rgba(24,20,31,0.94), rgba(11,12,17,0.82));
+      border-color: rgba(182,88,255,0.58);
+      box-shadow: 24px 28px 0 rgba(217,255,58,0.045), 0 30px 80px rgba(0,0,0,0.48);
+    }
+    .hero-panel::before {
+      inset: 12px;
+      background: linear-gradient(135deg, rgba(182,88,255,0.18), rgba(217,255,58,0.045));
+      border-color: rgba(217,255,58,0.15);
+      transform: rotate(-3deg);
+    }
+    .hero-panel-inner { padding: 44px 38px; }
+    .panel-title {
+      font-size: clamp(2.4rem, 4vw, 4.6rem);
+      line-height: 0.92;
+      text-transform: uppercase;
+    }
+    .feature-strip {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0;
+      margin-top: auto;
+      padding-top: 28px;
+      border-top: 1px solid rgba(182,88,255,0.34);
+    }
+    .feature-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-height: 48px;
+      padding: 0 18px;
+      border-right: 1px solid rgba(182,88,255,0.34);
+      color: var(--muted);
+      font-size: 0.66rem;
+      letter-spacing: 0.14em;
+      line-height: 1.5;
+      text-transform: uppercase;
+    }
+    .feature-item:first-child { padding-left: 0; }
+    .feature-item:last-child { border-right: 0; }
+    .feature-item i { color: var(--green); flex: 0 0 auto; }
+    #beats { padding-top: 36px; }
+    .filterbar { border-top: 0; margin-top: 0; }
+    @media (max-width: 840px) {
+      .hero { min-height: auto; padding-top: 132px; }
+      .hero-inner { grid-template-columns: 1fr; }
+      .hero-panel { min-height: 340px; }
+      .feature-strip { grid-template-columns: repeat(2, 1fr); row-gap: 18px; }
+      .feature-item:nth-child(2) { border-right: 0; }
+      .feature-item:nth-child(3), .feature-item:nth-child(4) { border-top: 1px solid rgba(182,88,255,0.22); padding-top: 18px; }
+    }
+    @media (max-width: 560px) {
+      .hero { padding: 112px 16px 30px; }
+      h1 { font-size: clamp(3.2rem, 16vw, 5.4rem); }
+      .hero-panel-inner { padding: 34px 24px; }
+      .feature-strip { grid-template-columns: 1fr; }
+      .feature-item, .feature-item:first-child { padding: 12px 0; border-right: 0; border-top: 1px solid rgba(182,88,255,0.22); }
+      .feature-item:first-child { border-top: 0; }
+      .hero::after { display: none; }
+    }
   </style>
 </head>
 <body>
@@ -603,6 +770,12 @@
             </div>
           </div>
         </div>
+      </div>
+      <div class="feature-strip" aria-label="Ventajas de NEGATIVO FILMS">
+        <div class="feature-item"><i data-lucide="audio-lines" width="20"></i><span>Instrumentales<br>de alta calidad</span></div>
+        <div class="feature-item"><i data-lucide="shield-check" width="20"></i><span>Compra directa<br>y segura</span></div>
+        <div class="feature-item"><i data-lucide="download" width="20"></i><span>Previews<br>instantáneos</span></div>
+        <div class="feature-item"><i data-lucide="infinity" width="20"></i><span>Sonido con<br>identidad</span></div>
       </div>
     </section>
 
