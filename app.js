@@ -120,6 +120,12 @@ document.querySelectorAll('.tiny-btn').forEach((button) => {
       button.style.borderColor = 'rgba(217,179,104,0.5)';
       button.style.color = '#f3d9a0';
     }
+
+    if (button.getAttribute('aria-label') === 'Comprar') {
+      const card = button.closest('.beat-card');
+      const message = encodeURIComponent(`Hola NEGATIVO FILMS, quiero comprar la instrumental ${card.dataset.title}.`);
+      window.open(`https://wa.me/573227200078?text=${message}`, '_blank', 'noopener,noreferrer');
+    }
   });
 });
 
